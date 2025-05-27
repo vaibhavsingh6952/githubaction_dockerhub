@@ -2,9 +2,9 @@ name: CICD for dockerized flask app
 
 on:
     push:
-        branches: [main]
+        branches: [master]
     pull_request:
-        branches: [main]
+        branches: [master]
 
 jobs:
     build-and-test:
@@ -21,9 +21,8 @@ jobs:
 
         - name: install dependencies
           run: |
-            python -m pip pip install --upgrade pip
-            pip install flask
-            pip install pytest
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt 
 
         - name: run tests
           run: |
